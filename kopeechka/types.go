@@ -19,7 +19,7 @@ type EmailClient struct {
 	ClientKey string       `json:"clientKey"`
 	Domain    string       `json:"domain"`
 	Site      string       `json:"site"`
-	Status    string       `json:"status"`  // API yanıtındaki durum (OK, ERROR vb.)
+	Status    int       `json:"status"`  // API yanıtındaki durum (OK, ERROR vb.)
 	Balance   float32      `json:"balance"` // Hesap bakiyesi
 	Value     string       `json:"value"`   // E-posta değeri
 	EmailId   string       `json:"emailId"` // E-posta kimliği
