@@ -2,18 +2,27 @@ package kopeechka
 
 import "net/http"
 
-type EmailClient struct {
-	Client    *http.Client
-	ClientKey string
-	Domain    string
-	Site      string
-	OrderId   int
-	Status    string `json:"code"`
-	Data      struct {
-		EmailId string `json:"orderId"` // orderId'nin tipi string, çünkü büyük sayılar olabilir
-		Email   string `json:"email"`
-		Links   string `json:"links"`
+type ApiResponse struct {
+	Code string `json:"code"`
+	Msg  string `json:"msg"`
+	Data struct {
+		Orders []struct {
+			OrderId string `json:"orderId"`
+			Email   string `json:"email"`
+		} `json:"orders"`
+		Links string `json:"links"`
 	} `json:"data"`
-	Balance float32 `json:"balance"`
-	Value   string  `json:"value"`
+}
+
+type EmailClient struct {
+	Client    *http.Client `json:"-"` // HTTP client (JSON'dan gelmez)
+	ClientKey string       `json:"clientKey"`
+	Domain    string       `json:"domain"`
+	Site      string       `json:"site"`
+	Status    string       `json:"status"`  // API yanıtındaki durum (OK, ERROR vb.)
+	Balance   float32      `json:"balance"` // Hesap bakiyesi
+	Value     string       `json:"value"`   // E-posta değeri
+	EmailId   string       `json:"emailId"` // E-posta kimliği
+	Email     string       `json:"email"`   // E-posta adresi
+	OrderId   int          `json:"orderId"` // Sipariş kimliği
 }
