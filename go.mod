@@ -1,3 +1,3 @@
-module github.com/sakinolsanabejris/asdasd/kopeechka
+module github.com/sakinolsanabejris/asdasd
 
 go 1.23.5
