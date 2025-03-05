@@ -9,8 +9,11 @@ type EmailClient struct {
 	Site      string
 	OrderId   int
 	Status    int  `json:"code"`
-	EmailId   string  `json:"orderId"`
-	Email     string  `json:"email"`
+	Data      struct {
+		OrderId string `json:"orderId"` // orderId'nin tipi string, çünkü büyük sayılar olabilir
+		Email   string `json:"email"`
+		Links   string `json:"links"`
+	} `json:"data"`
 	Balance   float32 `json:"balance"`
 	Value     string  `json:"value"`
 }
