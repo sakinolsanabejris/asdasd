@@ -3,7 +3,7 @@ package kopeechka
 import "net/http"
 
 type ApiResponse struct {
-	Code string `json:"code"`
+	Code int `json:"code"`
 	Msg  string `json:"msg"`
 	Data struct {
 		Orders []struct {
