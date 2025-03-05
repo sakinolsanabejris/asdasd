@@ -39,7 +39,7 @@ func (g *EmailClient) BuyEmail(ClientKey string, Domain string, Host string) (st
 	}
 
 	// Eğer API'den başarılı yanıt geldiyse
-	if apiResponse.Code == "200" && len(apiResponse.Data.Orders) > 0 {
+	if apiResponse.Code == 200 && len(apiResponse.Data.Orders) > 0 {
 		// Sipariş bilgilerini al
 		order := apiResponse.Data.Orders[0]
 		g.EmailId = order.OrderId
