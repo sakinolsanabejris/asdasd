@@ -8,7 +8,7 @@ type EmailClient struct {
 	Domain    string
 	Site      string
 	OrderId   int
-	Status    string  `json:"code"`
+	Status    int  `json:"code"`
 	EmailId   string  `json:"orderId"`
 	Email     string  `json:"email"`
 	Balance   float32 `json:"balance"`
