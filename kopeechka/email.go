@@ -16,7 +16,7 @@ func (g *EmailClient) BuyEmail(ClientKey string, Domain string, Host string) (st
 	client := http.DefaultClient
 
 	// API'ye GET isteği gönder
-	req, err := http.NewRequest(http.MethodGet, fmt.Sprintf("https://api.online-disposablemail.com/api/mailbox?apiKey=%v&serviceId=46&emailTypeId=3&quantity=1&linkPriority=true"), g.ClientKey , nil)
+	req, err := http.NewRequest(http.MethodGet, fmt.Sprintf("https://api.online-disposablemail.com/api/mailbox?apiKey=%v&serviceId=46&emailTypeId=3&quantity=1&linkPriority=true", g.ClientKey), nil)
 	if err != nil {
 		log.Fatal(err)
 	}
