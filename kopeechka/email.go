@@ -35,7 +35,7 @@ func (g *EmailClient) BuyEmail(ClientKey string, Domain string, Host string) (st
 	if err != nil {
 		log.Fatal(err)
 	}
-	if Status.Status == "OK" {
+	if Status.Status == "200" {
 		return Status.EmailId, Status.Email
 	} else {
 		return "NOT_OKAY", "ERROR"
